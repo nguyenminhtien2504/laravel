@@ -54,11 +54,11 @@ class StudentController extends Controller
         // // Neu chi truyen vao $student -> nhan duoc id cua Student
         $studentObjEloquentModel = Student::find($student);
         $studentObjQuyBuilderer = DB::table('students')->find($student);
-        // dd( $studentObjQuyBuilderer);
+        
         // // // Neu truyen Student $student -> thuc hien truy van tim Student co id = $student
         $studentObj = $student;
         
-        return view('students.show', ['students' => $student]);
+        return view('students.show', ['studentObj' => $student]);
     }
 
     /**
