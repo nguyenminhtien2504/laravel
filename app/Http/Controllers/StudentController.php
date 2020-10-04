@@ -57,6 +57,7 @@ class StudentController extends Controller
         
         // // // Neu truyen Student $student -> thuc hien truy van tim Student co id = $student
         $studentObj = $student;
+        dd($studentObjQuyBuilderer);die;
         
         return view('students.show', ['studentObj' => $student]);
     }
