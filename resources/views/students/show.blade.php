@@ -1,9 +1,6 @@
-
-
 @extends('admin-layout.master')
 
-@section('title','Title list extends')
-
+@section('title','chi tiết sinh viên')
 
 @section('content')
 <div class="content-wrapper">
@@ -55,13 +52,5 @@
           </div>
         </div>
     </div>
+
 @endsection
-@section('footer', 'Footer list extends')
-
-
-
-
-
-
-
-    

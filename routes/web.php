@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
-
-
+use Illuminate\Support\Facades\Request;
+use App\Http\Controllers\StudentController;
+// use App\Http\Controllers\SubjectController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,18 +19,29 @@ use Illuminate\Support\Facades\DB;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/students', function () {
-    // Su dung query builder
-    // Lay ra mang students
-    $students = DB::table('students')->where('id', '<', 5)->get();
-    // Lay rieng 1 student
-    // $student = DB::table('students')->find(1);
-    $student = DB::table('students')->where('id', '=', 1)->first();
+
+Route::view('/admin','test-admin' );
+
+// tạo route resource cho controller 
+Route::resource('students', StudentController::class);
+// ->only(['index']); khi chi dung ham nao do
+    // ->except(['create', 'edit']); khi can bo qua ham nao do
+// tạo route ko dùng resource 
+// Route::get('Subjects', [SubjectController::class, 'index'] 
+//     )->name(subjects.index);
+
+// Route::get('/students', function () {
+//     // Su dung query builder
+//     // Lay ra mang students
+//     $students = DB::table('students')->where('id', '<', 5)->get();
+//     // Lay rieng 1 student
+//     // $student = DB::table('students')->find(1);
+//     $student = DB::table('students')->where('id', '=', 1)->first();
 
 
-    // truyen vao [ten bien view nhan duoc => gia tri];
-    return view('students.detail', ['studentValue' => $student]);
-});
+//     // truyen vao [ten bien view nhan duoc => gia tri];
+//     return view('students.detail', ['studentValue' => $student]);
+// });
 
 // Gia tri truyen vao url se tuong ung vi tri tham so cua function
 Route::get('/students/{id}/{age}', function ($id, $age) {
